@@ -16,7 +16,7 @@ const Rules = () => {
   return (
     <>
       {!modalOpen ? (
-        <div>
+        <div className="flex justify-center">
           <button onClick={handleOpenRules}
             className="tracking-[2.5px] font-semibold py-[10px] px-[36px] rounded-[8px] border border-white
         text-white uppercase">
@@ -24,7 +24,7 @@ const Rules = () => {
           </button>
         </div>
       ) : (
-        <section className="bg-white rounded-[8px] h-screen w-screen">
+        <section className="fixed inset-0 bg-white rounded-[8px] h-screen w-screen">
           <div className="flex justify-center h-screen flex-col items-center">
             <h2 className="text-[2rem] pt-[2rem] uppercase text-center font-bold leading-[2rem] text-dark-gray mb-[96px]">
               Rules
