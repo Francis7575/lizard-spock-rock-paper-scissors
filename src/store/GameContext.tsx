@@ -6,7 +6,7 @@ interface GameContextType {
   result: string;
   userPick: string;
   compPick: string;
-  checkForWin: (pick: "rock" | "paper" | "scissors") => void;
+  checkForWin: (pick: "rock" | "paper" | "scissors" | "lizard" | "spock") => void;
 }
 
 interface GameContextProviderProps {
@@ -18,7 +18,7 @@ const defaultGameContext: GameContextType = {
   result: '',
   userPick: '',
   compPick: '',
-  checkForWin: () => {}, 
+  checkForWin: () => { },
 };
 
 const GameContext = createContext<GameContextType>(defaultGameContext);
@@ -29,8 +29,8 @@ export function GameContextProvider({ children }: GameContextProviderProps) {
   const [userPick, setUserPick] = useState<string>('');
   const [compPick, setCompPick] = useState<string>('');
 
-  function getComputerPick(): "rock" | "paper" | "scissors" {
-    const computerPick = Math.floor(Math.random() * 3);
+  function getComputerPick(): "rock" | "paper" | "scissors" | "lizard" | "spock" {
+    const computerPick = Math.floor(Math.random() * 5);
     switch (computerPick) {
       case 0:
         setCompPick('rock');
@@ -41,12 +41,18 @@ export function GameContextProvider({ children }: GameContextProviderProps) {
       case 2:
         setCompPick('scissors');
         return "scissors";
+      case 3:
+        setCompPick('lizard');
+        return "lizard";
+      case 4:
+        setCompPick('spock');
+        return "spock";
       default:
         return "rock"; // Default fallback
     }
   }
 
-  function checkForWin(pick: "rock" | "paper" | "scissors") {
+  function checkForWin(pick: "rock" | "paper" | "scissors" | "lizard" | "spock") {
     const cpuPick = getComputerPick();
     setUserPick(pick);
 
@@ -54,7 +60,14 @@ export function GameContextProvider({ children }: GameContextProviderProps) {
       setPlayerResult('TIED');
     } else if (
       (pick === "rock" && cpuPick === "scissors") ||
+      (pick === "rock" && cpuPick === "lizard") ||
+      (pick === "lizard" && cpuPick === "spock") ||
+      (pick === "lizard" && cpuPick === "paper") ||
       (pick === "paper" && cpuPick === "rock") ||
+      (pick === "paper" && cpuPick === "spock") ||
+      (pick === "spock" && cpuPick === "scissors") ||
+      (pick === "spock" && cpuPick === "rock") ||
+      (pick === "scissors" && cpuPick === "lizard") ||
       (pick === "scissors" && cpuPick === "paper")
     ) {
       setPlayerScore((prevScore) => prevScore + 1);
