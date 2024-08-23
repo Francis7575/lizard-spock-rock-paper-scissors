@@ -57,7 +57,7 @@ export function GameContextProvider({ children }: GameContextProviderProps) {
     setUserPick(pick);
 
     if (pick === cpuPick) {
-      setPlayerResult('TIED');
+      setPlayerResult("IT'S TIED");
     } else if (
       (pick === "rock" && cpuPick === "scissors") ||
       (pick === "rock" && cpuPick === "lizard") ||
@@ -71,10 +71,10 @@ export function GameContextProvider({ children }: GameContextProviderProps) {
       (pick === "scissors" && cpuPick === "paper")
     ) {
       setPlayerScore((prevScore) => prevScore + 1);
-      setPlayerResult('WIN');
+      setPlayerResult('YOU WIN');
     } else {
       setPlayerScore((prevScore) => prevScore - 1);
-      setPlayerResult('LOSE');
+      setPlayerResult('YOU LOSE');
     }
   }
 

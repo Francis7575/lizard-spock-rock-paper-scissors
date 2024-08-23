@@ -14,7 +14,12 @@ export default {
       },
       backgroundImage: {
         'score-card': 'linear-gradient(0deg, #F3F3F3 0%, #FFF 100%)',
+        'play-again': 'linear-gradient(0deg, #F3F3F3 0%, #FFF 100%)'
       },
+      boxShadow: {
+        'gray': '0px 3px 3px 0px rgba(0, 0, 0, 0.20)',
+        'winner-ring': '50px 50px 40px 40px rgba(245, 245, 244, 0.6)'
+      }
     },
   },
   plugins: [],
