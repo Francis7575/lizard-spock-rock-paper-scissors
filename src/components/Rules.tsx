@@ -41,7 +41,7 @@ const Rules = () => {
             className="bg-white md:max-w-[400px] md:py-8 md:max-h-[461px] rounded-[8px] h-screen w-screen md:w-full md:h-auto md:mx-auto"
             onClick={handleModalClick}
           >
-            <div className="flex justify-center h-screen flex-col items-center md:block md:h-auto md:items-start md:justify-start">
+            <div className="flex justify-center h-full flex-col items-center md:block md:h-auto md:items-start md:justify-start">
               <div className="md:flex md:justify-between lg:px-8 md:w-full md:mb-[40px]">
                 <h2 className="text-[2rem] pt-[2rem] uppercase text-center font-bold leading-[2rem] text-dark-gray mb-[96px] md:mb-0 md:pt-0">
                   Rules
