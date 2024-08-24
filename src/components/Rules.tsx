@@ -65,7 +65,7 @@ const Rules = () => {
       )}
       {isModalOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-10"
+          className="md:fixed md:inset-0 md:bg-black md:bg-opacity-50 md:z-10"
           onClick={handleCloseRules}
         ></div>
       )}
