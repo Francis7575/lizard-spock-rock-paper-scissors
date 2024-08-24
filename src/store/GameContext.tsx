@@ -2,7 +2,8 @@ import { useState, createContext, ReactNode, useContext } from "react";
 
 // Define the shape of the context
 interface GameContextType {
-  score: number;
+  playerScore: number;
+  computerScore: number;
   result: string;
   userPick: string;
   compPick: string;
@@ -14,7 +15,8 @@ interface GameContextProviderProps {
 }
 
 const defaultGameContext: GameContextType = {
-  score: 0,
+  playerScore: 0,
+  computerScore: 0,
   result: '',
   userPick: '',
   compPick: '',
@@ -25,6 +27,7 @@ const GameContext = createContext<GameContextType>(defaultGameContext);
 
 export function GameContextProvider({ children }: GameContextProviderProps) {
   const [playerScore, setPlayerScore] = useState<number>(0);
+  const [computerScore, setComputerScore] = useState<number>(0);
   const [playerResult, setPlayerResult] = useState<string>('');
   const [userPick, setUserPick] = useState<string>('');
   const [compPick, setCompPick] = useState<string>('');
@@ -70,16 +73,21 @@ export function GameContextProvider({ children }: GameContextProviderProps) {
       (pick === "scissors" && cpuPick === "lizard") ||
       (pick === "scissors" && cpuPick === "paper")
     ) {
-      setPlayerScore((prevScore) => prevScore + 1);
-      setPlayerResult('YOU WIN');
+      setTimeout(() => {
+        setPlayerScore((prevScore) => prevScore + 1);
+        setPlayerResult('YOU WIN');
+      }, 1500)
     } else {
-      setPlayerScore((prevScore) => prevScore - 1);
-      setPlayerResult('YOU LOSE');
+      setTimeout(() => {
+        setComputerScore((prevScore) => prevScore + 1)
+        setPlayerResult('YOU LOSE');
+      }, 1500)
     }
   }
 
   const values: GameContextType = {
-    score: playerScore,
+    playerScore: playerScore,
+    computerScore: computerScore,
     result: playerResult,
     userPick: userPick,
     compPick: compPick,

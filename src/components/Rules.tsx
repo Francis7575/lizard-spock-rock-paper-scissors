@@ -29,7 +29,7 @@ const Rules = () => {
             onClick={handleOpenRules}
             className="tracking-[2.5px] font-semibold py-[10px] px-[36px] rounded-[8px] border border-white text-white uppercase transition-transform duration-300 ease-in-out transform hover:scale-105"
           >
-            Rules
+            Show Rules
           </button>
         </div>
       ) : (

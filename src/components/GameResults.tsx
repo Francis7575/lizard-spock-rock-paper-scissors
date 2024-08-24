@@ -20,7 +20,8 @@ const GameResults = ({ playAgain }: GameResultsProps) => {
     visible: {
       y: [0, -25, 0, -20, 0, -15, 0], // bounce amplitude
       transition: {
-        duration: 1.5, // Total duration of the bounce
+        duration: 1.5, 
+        delay: 0.5, // Total duration of the bounce
         times: [0, 0.4, 0.6, 0.8, 0.9, 1], // Keyframes for the bounce
       },
     },
@@ -62,7 +63,7 @@ const GameResults = ({ playAgain }: GameResultsProps) => {
           </h2>
           <button
             onClick={playAgain}
-            className="uppercase bg-play-again w-full max-w-[220px] py-[15px] rounded-[8px] shadow-gray tracking-[2.5px] font-semibold text-dark-gray transition-transform duration-300 ease-in-out transform hover:scale-105"
+            className="animate-pulse uppercase bg-play-again w-full max-w-[220px] py-[15px] rounded-[8px] shadow-gray tracking-[2.5px] font-semibold text-dark-gray transition-transform duration-300 ease-in-out transform hover:scale-105"
           >
             Play Again
           </button>
@@ -92,14 +93,14 @@ const GameResults = ({ playAgain }: GameResultsProps) => {
         className="lg:hidden mt-[62px] flex flex-col items-center"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 1.5, ease: "easeOut" }}
+        transition={{ duration: 0.5, delay: 2.5, ease: "easeOut" }}
       >
         <h2 className="text-[3.5rem] font-bold text-white mb-4 leading-normal">
           {result}
         </h2>
         <button
           onClick={playAgain}
-          className="uppercase bg-play-again w-full max-w-[220px] py-[15px] rounded-[8px] shadow-gray tracking-[2.5px] font-semibold text-dark-gray transition-transform duration-300 ease-in-out transform hover:scale-105"
+          className="animate-pulse uppercase bg-play-again w-full max-w-[220px] py-[15px] rounded-[8px] shadow-gray tracking-[2.5px] font-semibold text-dark-gray transition-transform duration-300 ease-in-out transform hover:scale-105"
         >
           Play Again
         </button>
