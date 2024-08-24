@@ -34,11 +34,11 @@ const Rules = () => {
         </div>
       ) : (
         <section
-          className="fixed inset-0 flex items-center justify-center min-h-screen z-20"
+          className="fixed inset-0 md:flex md:items-center md:justify-center md:min-h-screen md:z-20"
           onClick={handleOverlayClick}
         >
           <div
-            className="bg-white md:max-w-[400px] md:py-8 md:max-h-[461px] rounded-[8px] h-screen w-screen md:w-full md:h-auto md:mx-auto"
+            className="bg-white md:max-w-[400px] md:py-8 md:max-h-[461px] rounded-[8px] h-full w-screen md:w-full md:h-auto md:mx-auto"
             onClick={handleModalClick}
           >
             <div className="flex justify-center h-full flex-col items-center md:block md:h-auto md:items-start md:justify-start">
